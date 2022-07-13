@@ -25,4 +25,6 @@ class Radio(commands.Cog):
     async def add(self, ctx):
        pass
 
-    
+def setup(bot):
+    bot.add_cog(Radio(bot))
+

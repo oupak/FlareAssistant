@@ -10,6 +10,7 @@ load_dotenv()
 token = os.environ.get('token')
 
 bot = commands.Bot(command_prefix='!')
+radio.setup(bot)
 
 @bot.event
 async def on_ready():
