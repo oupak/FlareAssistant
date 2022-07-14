@@ -32,12 +32,12 @@ class Radio(commands.Cog):
 
         voice_client = self.bot.voice_clients[0]
     
-        ytdl = youtube_dl.YoutubeDL(ydl_options)
-        info = ytdl.extract_info(link, download=False)
+        with youtube_dl.YoutubeDL(ydl_options) as ydl:
+            info = ydl.extract_info(link, download=False)
 
-        asrc = discord.FFmpegOpusAudio(info['formats'][0]['url'], **ffmpeg_options)
+        URL = discord.FFmpegOpusAudio(info['formats'][0]['url'], **ffmpeg_options)
 
-        voice_client.play(asrc)
+        voice_client.play(URL)
 
 def setup(bot):
     bot.add_cog(Radio(bot))
