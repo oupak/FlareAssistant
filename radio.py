@@ -32,8 +32,8 @@ class Radio(commands.Cog):
 
         voice_client = self.bot.voice_clients[0]
     
-        ytdl = youtube_dl.YoutubeDL(YTDL_OPTS)
-        info = ytdl.extract_info(url, download=False)
+        ytdl = youtube_dl.YoutubeDL(ydl_options)
+        info = ytdl.extract_info(link, download=False)
 
         asrc = discord.FFmpegOpusAudio(info['formats'][0]['url'], before_options="-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5")
 
